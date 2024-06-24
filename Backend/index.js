@@ -12,6 +12,10 @@ app.get('/', (req, res) => {
   res.send('Hello, Express with Node.js!');
 });
 
+app.get('/tomtom', (req, res) => {
+    res.send('This is about page');
+  });
+
 
 // Start the server
 app.listen(port, () => {
