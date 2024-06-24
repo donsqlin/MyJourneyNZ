@@ -1,5 +1,5 @@
 import React from 'react'
-import Map from '../Map/Map.jsx'
+import Map from '../Map/map.jsx'
 import Modal from '../Modal/Modal.jsx'
 
 
