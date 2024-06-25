@@ -1,6 +1,6 @@
 function NavBar() {
   return (
-    <nav className="bg-[#3479C2] flex justify-between text-white ">
+    <nav className="bg-[#3479C2] flex justify-between text-white fixed top-0	right-0 left-0">
       <div className="max-w-7xl px-2 sm:px-6 lg:px-8 flex items-center content-center h-16 gap-2">
         <div className="relative flex h-16 items-center">
           <button className="w-5 h-5 rounded-full bg-white text-center">
