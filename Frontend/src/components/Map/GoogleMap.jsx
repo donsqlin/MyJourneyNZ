@@ -1,7 +1,14 @@
 import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
 
 const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
-  // Define initMap function
+  // Expose a function to calculate and display route externally
+  useImperativeHandle(ref, () => ({
+    calculateRoute: () => {
+      calculateAndDisplayRoute();
+    },
+  }));
+
+    // Define initMap function
   const initMap = () => {
     const directionsService = new window.google.maps.DirectionsService();
     const directionsRenderer = new window.google.maps.DirectionsRenderer();
@@ -14,6 +21,25 @@ const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
 
     window.directionsService = directionsService;
     window.directionsRenderer = directionsRenderer;
+  };
+
+   // Function to calculate and display route
+  const calculateAndDisplayRoute = () => {
+    const { directionsService, directionsRenderer } = window;
+    directionsService.route(
+      {
+        origin: { query: start },
+        destination: { query: end },
+        travelMode: window.google.maps.TravelMode[travelMode],
+      },
+      (response, status) => {
+        if (status === 'OK') {
+          directionsRenderer.setDirections(response);
+        } else {
+          window.alert('Directions request failed due to ' + status);
+        }
+      }
+    );
   };
 
   // Effect to load Google Maps API script
@@ -39,35 +65,9 @@ const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
   // Effect to initialize the map when Google Maps API is ready
   useEffect(() => {
     if (window.google && window.google.maps) {
-      initMap(); // Initialize the map
+      initMap();
     }
   }, []);
-
-  // Expose a function to calculate and display route externally
-  useImperativeHandle(ref, () => ({
-    calculateRoute: () => {
-      calculateAndDisplayRoute();
-    },
-  }));
-
-  // Function to calculate and display route
-  const calculateAndDisplayRoute = () => {
-    const { directionsService, directionsRenderer } = window;
-    directionsService.route(
-      {
-        origin: { query: start },
-        destination: { query: end },
-        travelMode: window.google.maps.TravelMode[travelMode],
-      },
-      (response, status) => {
-        if (status === 'OK') {
-          directionsRenderer.setDirections(response);
-        } else {
-          window.alert('Directions request failed due to ' + status);
-        }
-      }
-    );
-  };
 
   return (
     <div>

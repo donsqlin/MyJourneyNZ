@@ -3,7 +3,7 @@ import { Button, FormControl, InputLabel, MenuItem, Select, Skeleton, SwipeableD
 import JourneySelection from '../journeySelection/JourneySelection.jsx';
 import TransportSelection from '../transportSelection/TransportSelection.jsx';
 
-const Modal = ({ changeAppProgress }) => {
+const Modal = ({ changeAppProgress, setStart, setDestination }) => {
   const [open, setOpen] = useState(false)
   const [modalProg, setModalProg] = useState(0)
 
@@ -31,7 +31,11 @@ const Modal = ({ changeAppProgress }) => {
           keepMounted: true,
         }}
       >
-        <JourneySelection changeAppProgressGrandparent={changeAppProgressGrandparent} />
+        <JourneySelection 
+        changeAppProgressGrandparent={changeAppProgress} 
+        setStart={setStart} 
+        setDestination={setDestination} 
+      />
         
         <Skeleton variant="rectangular" height="100%" />
       </SwipeableDrawer>
