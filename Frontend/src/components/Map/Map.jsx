@@ -36,7 +36,6 @@ const TomTomMap = () => {
     }
   }, [apiKey]);
 
-
   const updateRouteStyle = useCallback(() => {
     if (!map) return;
 
@@ -83,7 +82,7 @@ const TomTomMap = () => {
         });
   
         if (!routeResponse || !routeResponse.routes || !routeResponse.routes[0]) {
-          console.error(`Invalid response for ${mode}:`, data);
+          console.error(`Invalid response for ${mode}:`, routeResponse);
           return null; // Return null for this mode if the response is invalid
         }
   
@@ -123,11 +122,34 @@ const TomTomMap = () => {
         
         const el = document.createElement('div');
         el.innerHTML = icons[mode];
+
+        const getOffset = (percentageX, percentageY) => {
+          const mapContainer = document.getElementById('map');
+          const mapWidth = mapContainer.offsetWidth;
+          const mapHeight = mapContainer.offsetHeight;
+          const offsetX = (percentageX / 100) * mapWidth;
+          const offsetY = (percentageY / 100) * mapHeight;
+          return [offsetX, offsetY];
+        };
         
-        new tt.Marker({element: el})
+        // Define different offsets for different modes
+        const iconOffset = mode === 'car' ? getOffset(0, -2) : (mode === 'bus' ? getOffset(0, 7) : getOffset(0, 0));
+        new tt.Marker({element: el, offset: new tt.Point(...iconOffset)})
           .setLngLat(midpoint)
           .addTo(map);
-  
+        
+        // Extract ETA and create label with offset
+        const { summary } = routeResponse.routes[0];
+        const eta = Math.round(summary.travelTimeInSeconds / 60); // ETA in minutes
+        const etaLabel = document.createElement('div');
+        etaLabel.innerHTML = `<div style="background-color: white; padding: 5px; border-radius: 5px;">${eta} mins</div>`;
+        
+        // Define different offsets for ETA labels
+        const etaOffset = mode === 'car' ? getOffset(5, -3) : (mode === 'bus' ? getOffset(5, 7) : getOffset(5, -1));
+        new tt.Marker({element: etaLabel, offset: new tt.Point(...etaOffset)})
+          .setLngLat(midpoint)
+          .addTo(map);
+
         return geojson; // Return the geojson for this mode
       });
   
@@ -153,7 +175,6 @@ const TomTomMap = () => {
       setError(`Route calculation error: ${error}`);
     }
   }, [map, apiKey, geocodeAddress]);
-
 
   useEffect(() => {
     const initializeMap = () => {
@@ -196,3 +217,4 @@ const TomTomMap = () => {
 };
 
 export default TomTomMap;
+
