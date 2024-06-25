@@ -28,29 +28,29 @@ export default function TransportSelection({ changeAppProgressGrandparent1 }) {
 
   return (
     <div>
-      <FormControl sx={{ m: 1, width: 400 }}>
-        <InputLabel shrink htmlFor="select-multiple-native">
-          Native
-        </InputLabel>
-        <Select
-          multiple
-          native
-          value={selected}
-          onChange={handleChangeMultiple}
-          label="Native"
-          inputProps={{
-            id: 'select-multiple-native',
-          }}
-        >
-          {names.map((name) => (
-            <option key={name} value={name}>
-              {name}
-            </option>
-          ))}
-        </Select>
-      </FormControl>
+      <div className='flex-column justify-center'>
+        <p className='text-center'>dsd</p>
+        <FormControl sx={{ m: 1, width: 200, height:250, marginTop:3 }}>
+          <Select
+            multiple
+            native
+            value={selected}
+            onChange={handleChangeMultiple}
+            label="Native"
+            inputProps={{
+              id: 'select-multiple-native',
+            }}
+          >
+            {names.map((name) => (
+              <option key={name} value={name}>
+                {name}
+              </option>
+            ))}
+          </Select>
+        </FormControl>
+      </div>
 
-      <div className='flex justify-center'>
+      <div className='flex justify-center mb-[100px] mt-[100px]'>
         <Button
           onClick={() => changeAppProgressGrandparent1(1)}
           variant="contained" sx={{ width: "300px" }}
