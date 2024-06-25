@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Home from './components/Home/Home.jsx'
-import TomTomMap from './components/Map/map.jsx'
+import TomTomMap from './components/Map/Map.jsx'
 
 
 function App() {

@@ -65,6 +65,9 @@ const TomTomMap = () => {
       const start = startPoint.map(coord => parseFloat(coord).toFixed(6));
       const end = endPoint.map(coord => parseFloat(coord).toFixed(6));
 
+      new tt.Marker().setLngLat([start[0], start[1]]).addTo(map);
+      new tt.Marker().setLngLat([end[0], end[1]]).addTo(map);
+
       const travelModes = ['car', 'bus', 'bicycle'];
       const colors = {
         car: 'blue',
