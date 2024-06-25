@@ -8,6 +8,12 @@ const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
     const map = new window.google.maps.Map(document.getElementById('map'), {
       zoom: 11,
       center: { lat: -36.880184, lng: 174.754739 },
+      zoomControl: false,
+      mapTypeControl: false,
+      scaleControl: false,
+      streetViewControl: false,
+      rotateControl: false,
+      fullscreenControl: false,
     });
     directionsRenderer.setMap(map);
     directionsRenderer.setPanel(document.getElementById('directionsPanel'));

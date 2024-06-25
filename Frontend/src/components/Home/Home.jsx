@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Modal from '../Modal/Modal.jsx'
 import GoogleMap from '../Map/GoogleMap.jsx'
+// import Gmap from '../Map/Map.jsx'
 
 
 const Home = () => {
@@ -20,7 +21,8 @@ const Home = () => {
         <div>
             <h1 className='text-center py-5 bg-lime-500'>Events</h1>
         </div>
-        <GoogleMap start={start} destination={destination} progress={progress}/>
+        <GoogleMap/>
+        {/* <Gmap/> */}
         <Modal changeAppProgress= {changeAppProgress}/>
     </>
   )
