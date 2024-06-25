@@ -6,7 +6,7 @@ import TransportSelection from '../transportSelection/TransportSelection';
 const JourneySelection = ({ changeAppProgressGrandparent }) => {
   const [modelProg, setModelProg] = useState(0)
 
-  const changeAppProgressGrandparent1 = (prog) =>{
+  const changeAppProgressGrandparent1 = (prog) => {
     changeAppProgressGrandparent(prog)
     setModelProg(prog)
   }
@@ -14,23 +14,28 @@ const JourneySelection = ({ changeAppProgressGrandparent }) => {
   return (
     <div>
 
-      <p className='text-lg font-semibold mb-5'>Plan your journey</p>
-      <TextField
-        sx={{ width: "400px", marginBottom: "10px" }}
-        id="Start point"
-        label="Start point"
-        variant="outlined"
-      />
-      <TextField
-        sx={{ width: "400px", paddingTop: "5px" }}
-        id="Destination"
-        label="Destination"
-        variant="outlined"
-      />
+      <p className='text-lg font-semibold mb-5 '>Plan your journey</p>
 
-      {modelProg == 0
-      ? <SearchButton changeAppProgressGrandparent1 = {changeAppProgressGrandparent1}/>
-      : <TransportSelection />}      
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+        <TextField
+          sx={{ width: "400px", marginBottom: "10px" }}
+          id="Start point"
+          label="Start point"
+          variant="outlined"
+        />
+        <TextField
+          sx={{ width: "400px", paddingTop: "5px" }}
+          id="Destination"
+          label="Destination"
+          variant="outlined"
+        />
+
+        {modelProg == 0
+          ? <SearchButton changeAppProgressGrandparent1={changeAppProgressGrandparent1} />
+          : <TransportSelection changeAppProgressGrandparent1={changeAppProgressGrandparent1} />}
+          
+      </div>
+
 
     </div>
   )
