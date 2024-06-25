@@ -12,6 +12,7 @@ const icons = {
 const TomTomMap = () => {
   const [map, setMap] = useState(null);
   const [error, setError] = useState(null);
+  const [selectedRoute, setSelectedRoute] = useState(null);
 
   const apiKey = import.meta.env.VITE_APP_TOMTOM_API_KEY;
 
@@ -34,6 +35,20 @@ const TomTomMap = () => {
       return null;
     }
   }, [apiKey]);
+
+
+  const updateRouteStyle = useCallback(() => {
+    if (!map) return;
+
+    const travelModes = ['car', 'bus', 'bicycle'];
+    travelModes.forEach(mode => {
+      const layerId = `route-${mode}`;
+      if (map.getLayer(layerId)) {
+        map.setPaintProperty(layerId, 'line-opacity', mode === selectedRoute ? 1 : 0.5);
+        map.setPaintProperty(layerId, 'line-width', mode === selectedRoute ? 6 : 4);
+      }
+    });
+  }, [map, selectedRoute]);
 
   const calculateRoute = useCallback(async () => {
     if (!map) return;
@@ -90,8 +105,14 @@ const TomTomMap = () => {
           },
           paint: {
             'line-color': colors[mode],
-            'line-width': 5,
+            'line-width': 4,
+            'line-opacity': 0.5
           },
+        });
+
+        // Add click event to select route
+        map.on('click', layerId, () => {
+          setSelectedRoute(mode);
         });
 
         const coordinates = geojson.features[0].geometry.coordinates;
@@ -156,6 +177,12 @@ const TomTomMap = () => {
       calculateRoute();
     }
   }, [map, calculateRoute]);
+
+  useEffect(() => {
+    if (map && selectedRoute) {
+      updateRouteStyle();
+    }
+  }, [map, selectedRoute, updateRouteStyle]);
 
   return (
     <div>
