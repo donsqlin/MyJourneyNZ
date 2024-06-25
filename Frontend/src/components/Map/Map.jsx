@@ -44,6 +44,10 @@ const TomTomMap = () => {
       const start = startPoint.map(coord => parseFloat(coord).toFixed(6));
       const end = endPoint.map(coord => parseFloat(coord).toFixed(6));
 
+       // Add markers for start and end points
+       new tt.Marker().setLngLat([start[0], start[1]]).addTo(map);
+       new tt.Marker().setLngLat([end[0], end[1]]).addTo(map);
+
       const routeResponse = await ttservices.services.calculateRoute({
         key: apiKey,
         locations: `${start[0]},${start[1]}:${end[0]},${end[1]}`,
@@ -98,26 +102,7 @@ const TomTomMap = () => {
         center: [174.763336, -36.848461],
         zoom: 9,
       });
-      
-      mapInstance.on('load', () => {
-        // Add traffic flow layer
-        mapInstance.addLayer({
-          id: 'traffic-flow',
-          type: 'raster',
-          source: {
-            type: 'raster',
-            tiles: [
-              `https://api.tomtom.com/traffic/map/4/tile/flow/relative0/{z}/{x}/{y}.png?key=${apiKey}`
-            ],
-            tileSize: 256,
-          },
-          layout: {
-            visibility: 'visible',
-          },
-        });
-
-        setMap(mapInstance);
-      });
+      setMap(mapInstance);
     };
 
     initializeMap();
