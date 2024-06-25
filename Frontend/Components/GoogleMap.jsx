@@ -1,7 +1,7 @@
 import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
-import scooterIconUrl from './assets/electric-scooter.png'; // Adjust the import path as necessary
-import circleIconUrl from './assets/circle.png'; // Adjust the import path as necessary
-import bicycleIconUrl from './assets/bicycle.png'; // Adjust the import path as necessary
+import scooterIconUrl from './assets/electric-scooter.png'; 
+import circleIconUrl from './assets/circle.png'; 
+import bicycleIconUrl from './assets/bicycle.png'; 
 
 const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
   useEffect(() => {
@@ -38,22 +38,6 @@ const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
     });
     directionsRenderer.setMap(map);
     directionsRenderer.setPanel(document.getElementById('directionsPanel'));
-
-    // Generate random circles within a specific area
-    const generateRandomCircles = (numCircles) => {
-      const circles = [];
-      const latMin = -36.875565;
-      const latMax = -36.843080;
-      const lngMin = 174.744255;
-      const lngMax = 174.784437;
-
-      for (let i = 0; i < numCircles; i++) {
-        const lat = latMin + (latMax - latMin) * Math.random();
-        const lng = lngMin + (lngMax - lngMin) * Math.random();
-        circles.push({ lat, lng });
-      }
-      return circles;
-    };
 
     const scooterLocations = [
       { lat: -36.848461, lng: 174.763336 },
@@ -132,18 +116,18 @@ const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
     ];
 
     const scooterIcon = {
-      url: scooterIconUrl, // Use the imported scooter icon
-      scaledSize: new window.google.maps.Size(27, 27), // Adjust the size as needed
+      url: scooterIconUrl, 
+      scaledSize: new window.google.maps.Size(27, 27), 
     };
 
     const circleIcon = {
-      url: circleIconUrl, // Use the imported circle icon
-      scaledSize: new window.google.maps.Size(15, 15), // Adjust the size as needed
+      url: circleIconUrl,
+      scaledSize: new window.google.maps.Size(15, 15),
     };
 
     const bicycleIcon = {
-      url: bicycleIconUrl, // Use the imported bicycle icon
-      scaledSize: new window.google.maps.Size(30, 30), // Adjust the size as needed
+      url: bicycleIconUrl, 
+      scaledSize: new window.google.maps.Size(30, 30), 
     };
 
     scooterLocations.forEach(location => {
