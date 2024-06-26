@@ -15,7 +15,7 @@ const DottedLine = styled('div')({
     margin: '0 5px',
 });
 
-const Beam2Button = () => {
+const Beam2Button = ({ onClick }) => {
     return (
         <Box
             sx={{
@@ -29,7 +29,9 @@ const Beam2Button = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
+                cursor: 'pointer', 
             }}
+            onClick={onClick}
         >
             <Box
                 sx={{

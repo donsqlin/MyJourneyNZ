@@ -13,11 +13,7 @@ const DottedLine = styled('div')({
     margin: '0 5px',
 });
 
-const AtRouterButton = () => {
-    const handleClick = () => {
-        console.log('AtRouterButton clicked');
-    };
-
+const AtRouterButton = ({ onClick }) => {
     return (
         <Box
             sx={{
@@ -31,9 +27,9 @@ const AtRouterButton = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                cursor: 'pointer', // Add cursor style to indicate clickability
+                cursor: 'pointer', 
             }}
-            onClick={handleClick}
+            onClick={onClick}
         >
             <Box
                 sx={{

@@ -6,7 +6,7 @@ import Beam1Button from '../fancyButtons/Beam1Button.jsx'
 import Beam2Button from '../fancyButtons/Beam2Button.jsx'
 import UberButton from '../fancyButtons/UberButton.jsx'
 
-const RouteSelection = ({ sortby }) => {
+const RouteSelection = ({ sortby, handleTravelModeChange  }) => {
 
 
 
@@ -19,7 +19,7 @@ const RouteSelection = ({ sortby }) => {
             <div>
                 <h1 className='font-bold mt-[20px] text-center'>Top Suggested Route</h1>
                 <div>
-                    <RouteButton />
+                    <RouteButton onClick={() => handleTravelModeChange('TRANSIT')}/>
                 </div>
             </div>
 
@@ -27,17 +27,17 @@ const RouteSelection = ({ sortby }) => {
                 <h1 className='font-bold mt-[20px] text-center'>Other Journeys</h1>
                 <div className='max-h-[300px] overflow-y-auto'>
 
-                    <div>
-                        <AtRouterButton />
+                     <div>
+                       <AtRouterButton onClick={() => handleTravelModeChange('TRANSIT')} />
                     </div>
                     <div>
-                        <Beam1Button />
+                        <Beam1Button onClick={() => handleTravelModeChange('BYCYCLING')}/>
                     </div>
                     <div>
-                        <Beam2Button />
+                        <Beam2Button onClick={() => handleTravelModeChange('BYCYCLING')} />
                     </div>
                     <div>
-                        <UberButton />
+                        <UberButton onClick={() => handleTravelModeChange('DRIVING')} />
                     </div>
                 </div>
             </div>
