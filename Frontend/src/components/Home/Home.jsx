@@ -27,7 +27,7 @@ const Home = () => {
       <div>
         <h1 className='text-center py-5 bg-lime-500'>Events</h1>
       </div>
-      <GoogleMap ref={googleMapRef} start={start} end={destination} travelMode="DRIVING" />
+      <GoogleMap ref={googleMapRef} start={start} end={destination} travelMode="TRANSIT" />
       <Modal 
         changeAppProgress={changeAppProgress} 
         setStart={setStart} 
