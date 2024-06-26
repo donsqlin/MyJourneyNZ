@@ -92,6 +92,8 @@
 
 import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
 import blackAndWhiteStyle from '../../assets/blackandwhitestyle.json';
+import currentLocationIcon from '../../assets/current-location-icon.svg';
+import destinationFlagIcon from '../../assets/destination-flag-icon.svg';
 
 
 const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
@@ -108,7 +110,9 @@ const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
     // Define initMap function
   const initMap = () => {
     const directionsService = new window.google.maps.DirectionsService();
-    const directionsRenderer = new window.google.maps.DirectionsRenderer();
+    const directionsRenderer = new window.google.maps.DirectionsRenderer({
+      suppressMarkers: true // This will suppress the default A and B markers
+    });
     const map = new window.google.maps.Map(document.getElementById('map'), {
       zoom: 11,
       center: { lat: -36.880184, lng: 174.754739 },
@@ -128,11 +132,12 @@ const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
 
     window.directionsService = directionsService;
     window.directionsRenderer = directionsRenderer;
+    window.map = map;
   };
 
    // Function to calculate and display route
   const calculateAndDisplayRoute = () => {
-    const { directionsService, directionsRenderer } = window;
+    const { directionsService, directionsRenderer, map } = window;
     directionsService.route(
       {
         origin: { query: start },
@@ -142,12 +147,47 @@ const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
       (response, status) => {
         if (status === 'OK') {
           directionsRenderer.setDirections(response);
+  
+          // Add markers for start and end points
+          const route = response.routes[0];
+          const startLocation = route.legs[0].start_location;
+          const endLocation = route.legs[0].end_location;
+  
+          // Create and add the start marker (A)
+          new window.google.maps.Marker({
+            position: startLocation,
+            map: map,
+            icon: {
+              url: currentLocationIcon,
+              scaledSize: new window.google.maps.Size(30, 30), // Adjust size as needed
+            },
+            label: {
+              text: 'A',
+              color: 'white',
+              fontSize: '14px',
+            },
+          });
+  
+          // Create and add the end marker (B)
+          new window.google.maps.Marker({
+            position: endLocation,
+            map: map,
+            icon: {
+              url: destinationFlagIcon,
+              scaledSize: new window.google.maps.Size(30, 30), // Adjust size as needed
+            },
+            label: {
+              text: 'B',
+              color: 'white',
+              fontSize: '14px',
+            },
+          });
         } else {
           window.alert('Directions request failed due to ' + status);
         }
       }
     );
-  };
+  };  
 
   // Effect to load Google Maps API script
   useEffect(() => {
