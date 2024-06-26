@@ -18,7 +18,6 @@ const Modal = ({ changeAppProgress, setStart, setDestination }) => {
 
   return (
     <div className='z-10 rounded-md flex flex-col items-center justify-center p-5'>
-      <button onClick={() => { changeAppProgress("sd") }}></button>
       <SwipeableDrawer
         container={container}
         anchor="bottom"
@@ -32,10 +31,10 @@ const Modal = ({ changeAppProgress, setStart, setDestination }) => {
         }}
       >
         <JourneySelection 
-        changeAppProgressGrandparent={changeAppProgress} 
+        changeAppProgressGrandparent={changeAppProgressGrandparent} 
         setStart={setStart} 
         setDestination={setDestination} 
-      />
+        />
         
         <Skeleton variant="rectangular" height="100%" />
       </SwipeableDrawer>
