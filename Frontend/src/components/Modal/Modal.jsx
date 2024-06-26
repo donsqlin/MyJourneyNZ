@@ -21,9 +21,11 @@ const Puller = styled('div')(({ theme }) => ({
   left: 'calc(50% - 15px)',
 }));
 
-const Modal = ({ changeAppProgress, setStart, setDestination, handleTravelModeChange }) => {
+const Modal = ({ changeAppProgress, setStart, setDestination, handleTravelModeChange, directions, start, destination }) => {
   const [open, setOpen] = useState(false);
   const [modalProg, setModalProg] = useState(0);
+
+  
 
   const changeAppProgressGrandparent = (prog) => {
     changeAppProgress(prog);
@@ -77,6 +79,9 @@ const Modal = ({ changeAppProgress, setStart, setDestination, handleTravelModeCh
             setStart={setStart}
             setDestination={setDestination}
           handleTravelModeChange={handleTravelModeChange} 
+          directions={directions}
+          start={start}
+          destination={destination}
         />
         <Skeleton variant="rectangular" height="100%" />
       </SwipeableDrawer>
