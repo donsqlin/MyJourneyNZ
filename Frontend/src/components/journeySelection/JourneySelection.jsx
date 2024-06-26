@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TextField } from '@mui/material';
 import SearchButton from '../SearchButton/SearchButton';
 import TransportSelection from '../transportSelection/TransportSelection';
-import routeButton from '../fancyButtons/routeButton';
+import RouteButton from '../fancyButtons/RouteButton';
 
 const JourneySelection = ({ changeAppProgressGrandparent, setStart, setDestination }) => {
   const [modelProg, setModelProg] = useState(0);
@@ -38,8 +38,9 @@ const JourneySelection = ({ changeAppProgressGrandparent, setStart, setDestinati
           value={destination}
           onChange={(e) => setDestinationState(e.target.value)}
         />
-
-        <routeButton/>
+        <h2>his</h2>
+        <RouteButton />
+        <h1>he</h1>
 
         {modelProg === 0 ? (
           <SearchButton changeAppProgressGrandparent1={changeAppProgressGrandparent1} />
