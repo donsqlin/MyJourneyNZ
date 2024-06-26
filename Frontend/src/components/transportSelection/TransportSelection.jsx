@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -13,8 +13,8 @@ const names = [
   'Popularity'
 ];
 
-export default function TransportSelection({ changeAppProgressGrandparent1 }) {
-  const [selected, setSelected] = React.useState([]);
+const TransportSelection = ({ changeAppProgressGrandparent1 }) => {
+  const [selected, setSelected] = useState([]);
   const handleChangeMultiple = (event) => {
     const { options } = event.target;
     const value = [];
@@ -53,12 +53,14 @@ export default function TransportSelection({ changeAppProgressGrandparent1 }) {
       <div className='flex justify-center'>
         <Button
           onClick={() => changeAppProgressGrandparent1(1)}
-          variant="contained" sx={{ width: "300px" }}
+          variant="contained"
+          sx={{ width: '300px' }}
         >
           Search
         </Button>
       </div>
-
     </div>
   );
-}
+};
+
+export default TransportSelection;
