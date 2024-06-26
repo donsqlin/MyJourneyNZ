@@ -7,6 +7,7 @@ import React, {
 
 const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
   const [directionsData, setDirectionsData] = useState()
+  const [showDirections, setShowDirections] = useState(false);
   // Expose a function to calculate and display route externally
   useImperativeHandle(ref, () => ({
     calculateRoute: () => {
@@ -45,8 +46,10 @@ const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
         if (status === 'OK') {
           setDirectionsData(response.routes[0].legs[0].steps)
           directionsRenderer.setDirections(response)
+          setShowDirections(true);
         } else {
           window.alert('Directions request failed due to ' + status)
+          setShowDirections(false);
         }
       }
     )
@@ -82,40 +85,42 @@ const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
   return (
     <div>
       <div id="map" style={{ height: '710px', width: '100%' }}></div>
-      <div className="mt-2">
-        <div className="flex font-bold">
-          <div className="flex gap-2">
-            <div className="ml-2">3:30</div>
-            <div>Location</div>
+      {showDirections && directionsData && (
+        <div className="mt-2">
+          <div className="flex font-bold">
+            <div className="flex gap-2">
+              <div className="ml-2">3:30</div>
+              <div>Location</div>
+            </div>
+            <div className="ml-2">Depart from {start}</div>
           </div>
-          <div className="ml-2">Depart from {start}</div>
+  
+          <ul>
+            {directionsData.map((direction, index) => (
+              <li key={index}>
+                <p>{direction.instructions}</p>
+                <p>{direction.duration.text}</p>
+              </li>
+            ))}
+          </ul>
+  
+          <div className="flex font-bold justify-between">
+            <div className="flex gap-2">
+              <div className="ml-2">4:30</div>
+              <div>flag icon</div>
+              <div>Arrive at {end}</div>
+            </div>
+  
+            <div>
+              <button className="bg-black text-white font-bold py-2 px-4 rounded mr-3 mb-5">
+                Start
+              </button>
+            </div>
+          </div>
         </div>
-
-        <ul>
-          {directionsData.map((direction) => (
-            <li key={direction.instructions}>
-              <p>{direction.instructions}</p>
-              <p>{direction.duration.text}</p>
-            </li>
-          ))}
-        </ul>
-
-        <div className="flex font-bold justify-between">
-          <div className="flex gap-2">
-            <div className="ml-2">4:30</div>
-            <div>flag icon</div>
-            <div>Arrive at {end}</div>
-          </div>
-
-          <div>
-            <button className="bg-black text-white font-bold py-2 px-4 rounded mr-3 mb-5">
-              Start
-            </button>
-          </div>
-        </div>
-      </div>
+      )}
     </div>
-  )
+  )  
 })
 
 export default GoogleMap
