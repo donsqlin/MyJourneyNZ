@@ -4,19 +4,18 @@ import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
 import DirectionsSubwayIcon from '@mui/icons-material/DirectionsSubway';
 import SportsScoreIcon from '@mui/icons-material/SportsScore';
 import ScheduleIcon from '@mui/icons-material/Schedule';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { styled } from '@mui/system';
 import MoreHoriz from "@mui/icons-material/MoreHoriz";
 import Atlogo from "../../assets/AT.svg"
 
 const DottedLine = styled('div')({
-  flexGrow: 1,
-  height: '2px',
-  borderTop: '2px dotted white',
-  margin: '0 5px',
+    flexGrow: 1,
+    height: '2px',
+    borderTop: '2px dotted black',
+    margin: '0 5px',
 });
 
-const RouteButton = () => {
+const RouteButton = ({onClick}) => {
   return (
     <Box
       sx={{
@@ -31,6 +30,7 @@ const RouteButton = () => {
         flexDirection: 'column',
         alignItems: 'center',
       }}
+      onClick={onClick}
     >
       <Box
         sx={{

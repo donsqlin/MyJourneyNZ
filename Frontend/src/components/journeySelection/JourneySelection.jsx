@@ -4,23 +4,22 @@ import SearchButton from '../SearchButton/SearchButton';
 import TransportSelection from '../transportSelection/TransportSelection';
 import RouteSelection from '../RouteSelection/RouteSelection';
 
-
-const JourneySelection = ({ changeAppProgressGrandparent, setStart, setDestination }) => {
-  const [modelProg, setModelProg] = useState(0)
-  const [sortby, setSortby] = useState("")
+const JourneySelection = ({ changeAppProgressGrandparent, setStart, setDestination, handleTravelModeChange }) => {
+  const [modelProg, setModelProg] = useState(0);
+  const [sortby, setSortby] = useState("");
   const [start, setStartState] = useState('');
   const [destination, setDestinationState] = useState('');
 
   const changeSortBy = (sort) => {
-    setSortby(sort)
-  }
+    setSortby(sort);
+  };
 
   const changeAppProgressGrandparent1 = (prog) => {
     setStart(start);
     setDestination(destination);
-    changeAppProgressGrandparent(prog)
-    setModelProg(prog)
-  }
+    changeAppProgressGrandparent(prog);
+    setModelProg(prog);
+  };
 
   return (
 
@@ -50,17 +49,16 @@ const JourneySelection = ({ changeAppProgressGrandparent, setStart, setDestinati
           onChange={(e) => setDestinationState(e.target.value)}
         />
 
-        {modelProg == 0
-          ? <SearchButton changeAppProgressGrandparent1={changeAppProgressGrandparent1} />
-          : (modelProg == 1
-            ? <TransportSelection changeAppProgressGrandparent1={changeAppProgressGrandparent1} changeSortBy={changeSortBy} />
-            : <RouteSelection sortby={sortby} />)}
-
+        {modelProg === 0 ? (
+          <SearchButton changeAppProgressGrandparent1={changeAppProgressGrandparent1} />
+        ) : modelProg === 1 ? (
+          <TransportSelection changeAppProgressGrandparent1={changeAppProgressGrandparent1} changeSortBy={changeSortBy} />
+        ) : (
+          <RouteSelection sortby={sortby} handleTravelModeChange={handleTravelModeChange} />
+        )}
       </div>
-
-
     </div>
-  )
-}
+  );
+};
 
-export default JourneySelection
+export default JourneySelection;

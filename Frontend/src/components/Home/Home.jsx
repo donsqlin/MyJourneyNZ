@@ -8,6 +8,7 @@ const Home = () => {
   const [start, setStart] = useState('');
   const [destination, setDestination] = useState('');
   const [progress, setProgress] = useState(0);
+  const [travelMode, setTravelMode] = useState('DRIVING');
   const googleMapRef = useRef();
 
   const changeAppProgress = (prog) => {
@@ -24,6 +25,11 @@ const Home = () => {
     }
   };
 
+  const handleTravelModeChange = (mode) => {
+    setTravelMode(mode);
+    handleCalculateRoute();
+  };
+
   return (
     <>
       <div>
@@ -34,11 +40,12 @@ const Home = () => {
       :<NavBar />}
       
       
-      <GoogleMap ref={googleMapRef} start={start} end={destination} travelMode="TRANSIT" />
+      <GoogleMap ref={googleMapRef} start={start} end={destination} travelMode={travelMode} />
       <Modal 
         changeAppProgress={changeAppProgress} 
         setStart={setStart} 
-        setDestination={setDestination} 
+        setDestination={setDestination}
+        handleTravelModeChange={handleTravelModeChange} 
       />
     </>
   );

@@ -15,7 +15,7 @@ const DottedLine = styled('div')({
     margin: '0 5px',
 });
 
-const UberButton = () => {
+const UberButton = ({ onClick }) => {
     return (
         <Box
             sx={{
@@ -30,7 +30,9 @@ const UberButton = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
+                cursor: 'pointer',
             }}
+            onClick={onClick}
         >
             <Box
                 sx={{
