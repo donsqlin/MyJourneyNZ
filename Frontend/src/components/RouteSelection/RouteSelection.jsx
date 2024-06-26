@@ -1,5 +1,5 @@
 import React from 'react'
-import RouteButton from '../fancyButtons/routeButton.jsx'
+// import RouteButton from '../fancyButtons/RouteButton.jsx'
 import OtherRouterButton from '../fancyButtons/OtherRouterButtons.jsx'
 import AtRouterButton from '../fancyButtons/AtButton.jsx'
 import Beam1Button from '../fancyButtons/Beam1Button.jsx'
@@ -19,7 +19,7 @@ const RouteSelection = ({ sortby, handleTravelModeChange  }) => {
             <div>
                 <h1 className='font-bold mt-[20px] text-center'>Top Suggested Route</h1>
                 <div>
-                    <RouteButton onClick={() => handleTravelModeChange('TRANSIT')}/>
+                    <OtherRouterButton onClick={() => handleTravelModeChange('TRANSIT')}/>
                 </div>
             </div>
 

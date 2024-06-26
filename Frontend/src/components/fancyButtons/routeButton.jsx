@@ -27,7 +27,7 @@ const AtRouterButton = ({ onClick }) => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                cursor: 'pointer', // Add cursor style to indicate clickability
+                cursor: 'pointer', 
             }}
             onClick={onClick}
         >
