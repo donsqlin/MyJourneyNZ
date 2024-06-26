@@ -31,10 +31,10 @@ const RouteSelection = ({ sortby, handleTravelModeChange  }) => {
                        <AtRouterButton onClick={() => handleTravelModeChange('TRANSIT')} />
                     </div>
                     <div>
-                        <Beam1Button onClick={() => handleTravelModeChange('BYCYCLING')}/>
+                        <Beam1Button onClick={() => handleTravelModeChange('BICYCLING')}/>
                     </div>
                     <div>
-                        <Beam2Button onClick={() => handleTravelModeChange('BYCYCLING')} />
+                        <Beam2Button onClick={() => handleTravelModeChange('BICYCLING')} />
                     </div>
                     <div>
                         <UberButton onClick={() => handleTravelModeChange('DRIVING')} />
