@@ -41,7 +41,7 @@ const UberButton = () => {
             >
                 <img src={UberLogo} className="w-[50px] h-[40px]"></img>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <h3> UBERX/UBER GREEN</h3>
+                    <h3 className="font-bold"> UBERX/UBER GREEN</h3>
                     {/* <DirectionsBusIcon sx={{ color: 'black' }} />
                     <DottedLine />
                     <DirectionsSubwayIcon sx={{ color: 'black' }} /> */}

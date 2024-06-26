@@ -41,7 +41,7 @@ const Beam2Button = () => {
             >
                 <img src={BeamLogo} className="w-[50px] h-[40px]"></img>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <h3> BEAM-SCOOTER 1-2 PAX </h3>
+                    <h3 className="font-bold"> BEAM-SCOOTER 1-2 PAX </h3>
                     {/* <DirectionsBusIcon sx={{ color: 'black' }} />
                     <DottedLine />
                     <DirectionsSubwayIcon sx={{ color: 'black' }} /> */}
