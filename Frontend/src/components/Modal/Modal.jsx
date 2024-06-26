@@ -1,6 +1,25 @@
 import React, { useState } from 'react';
-import { SwipeableDrawer, Skeleton } from '@mui/material';
+import { Box, Button, FormControl, InputLabel, MenuItem, Select, Skeleton, SwipeableDrawer, TextField, Typography } from '@mui/material';
 import JourneySelection from '../journeySelection/JourneySelection.jsx';
+import TransportSelection from '../transportSelection/TransportSelection.jsx';
+import { styled } from '@mui/material/styles';
+import { grey } from '@mui/material/colors';
+import { Global } from '@emotion/react';
+import DehazeIcon from '@mui/icons-material/Dehaze';
+
+const StyledBox = styled('div')(({ theme }) => ({
+  backgroundColor: "white",
+}));
+
+const Puller = styled('div')(({ theme }) => ({
+  width: 30,
+  height: 6,
+  backgroundColor: 'black',
+  borderRadius: 3,
+  position: 'absolute',
+  top: 880,
+  left: 'calc(50% - 15px)',
+}));
 
 const Modal = ({ changeAppProgress, setStart, setDestination, handleTravelModeChange }) => {
   const [open, setOpen] = useState(false);
@@ -15,8 +34,18 @@ const Modal = ({ changeAppProgress, setStart, setDestination, handleTravelModeCh
   let container = window.document.body;
 
   return (
-    <div className='z-10 rounded-md flex flex-col items-center justify-center p-5'>
+    <div className=''>
+      <Global
+        styles={{
+          '.MuiDrawer-root > .MuiPaper-root': {
+            // height: `calc(50% - ${drawerBleeding}px)`,
+            overflow: 'visible',
+          },
+        }}
+      />
+
       <SwipeableDrawer
+        sx={{borderTop:"1px solid black"}}
         container={container}
         anchor="bottom"
         open={open}
@@ -28,10 +57,25 @@ const Modal = ({ changeAppProgress, setStart, setDestination, handleTravelModeCh
           keepMounted: true,
         }}
       >
-        <JourneySelection 
-          changeAppProgressGrandparent={changeAppProgressGrandparent} 
-          setStart={setStart} 
-          setDestination={setDestination} 
+        <StyledBox
+          sx={{
+            position: 'absolute',
+            top: -drawerBleeding,
+            borderTopLeftRadius: 8,
+            borderTopRightRadius: 8,
+            visibility: 'visible',
+            right: 0,
+            left: 0,
+          }}
+        >
+          <div className='ml-[48%] mt-[10px] h-[50px]'>
+            <DehazeIcon />
+          </div>
+        </StyledBox>
+        <JourneySelection
+            changeAppProgressGrandparent={changeAppProgressGrandparent}
+            setStart={setStart}
+            setDestination={setDestination}
           handleTravelModeChange={handleTravelModeChange} 
         />
         <Skeleton variant="rectangular" height="100%" />

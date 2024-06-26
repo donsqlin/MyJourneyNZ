@@ -22,7 +22,8 @@ const UberButton = ({ onClick }) => {
                 width: '100%',
                 backgroundColor: 'white',
                 color: 'black',
-                borderRadius: '10px',
+                // borderRadius: '10px',
+                border: "1px solid black",
                 boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
                 padding: '10px',
                 textAlign: 'center',
@@ -43,7 +44,7 @@ const UberButton = ({ onClick }) => {
             >
                 <img src={UberLogo} className="w-[50px] h-[40px]"></img>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <h3> UBERX/UBER GREEN</h3>
+                    <h3 className="font-bold"> UBERX/UBER GREEN</h3>
                     {/* <DirectionsBusIcon sx={{ color: 'black' }} />
                     <DottedLine />
                     <DirectionsSubwayIcon sx={{ color: 'black' }} /> */}
@@ -68,8 +69,17 @@ const UberButton = ({ onClick }) => {
                 }}
             >
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <ScheduleIcon sx={{ color: '#fff', marginRight: '5px' }} />
-                    <Typography sx={{fontSize: "10px"}}>WEST leaves 4:09pm from Parnell Train station</Typography>
+                    <ScheduleIcon sx={{ color: 'black', marginRight: '5px' }} />
+                    <Typography sx={{}}>4 PM</Typography>
+                    <div className="flex flex-row items-center ml-[50px]">
+                        <Typography>Sustainability</Typography>
+                                            
+                        <div className="w-[50px] h-[10px] bg-green-500 ml-[10px]"></div>
+                        <div className="w-[50px] h-[10px] bg-orange-500"></div>
+                        <div className="w-[50px] h-[10px] bg-red-500"></div>
+ 
+    
+                    </div>
                 </Box>
             </Box>
         </Box>

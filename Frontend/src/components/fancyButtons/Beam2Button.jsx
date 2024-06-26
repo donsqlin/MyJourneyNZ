@@ -22,7 +22,8 @@ const Beam2Button = ({ onClick }) => {
                 width: '100%',
                 backgroundColor: 'white',
                 color: 'black',
-                borderRadius: '10px',
+                // borderRadius: '10px',
+                border: "1px solid black",
                 boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
                 padding: '10px',
                 textAlign: 'center',
@@ -43,12 +44,12 @@ const Beam2Button = ({ onClick }) => {
             >
                 <img src={BeamLogo} className="w-[50px] h-[40px]"></img>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <h3> BEAM-SCOOTER 1-2 PAX </h3>
+                    <h3 className="font-bold"> BEAM-SCOOTER 1-2 PAX </h3>
                     {/* <DirectionsBusIcon sx={{ color: 'black' }} />
                     <DottedLine />
                     <DirectionsSubwayIcon sx={{ color: 'black' }} /> */}
                 </Box>
-                <Box sx={{display:"flex", flexDirection:"column"}}>
+                <Box sx={{ display: "flex", flexDirection: "column" }}>
                     <Typography sx={{ fontWeight: 'bold', fontSize: '1.2em' }}>
                         $21.01
                     </Typography>
@@ -67,9 +68,15 @@ const Beam2Button = ({ onClick }) => {
                     marginTop: '10px',
                 }}
             >
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <ScheduleIcon sx={{ color: '#fff', marginRight: '5px' }} />
-                    <Typography>WEST leaves 4:09pm from Parnell Train station</Typography>
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: "center" }}>
+                    <ScheduleIcon sx={{ color: 'black', marginRight: '5px' }} />
+                    <Typography sx={{ textAlign: 'center' }}>3:50 PM</Typography>
+                    <div className="flex flex-row items-center ml-[20px]">
+                        <Typography>Sustainability</Typography>
+                        <div className="w-[50px] h-[10px] bg-green-500 ml-[10px]"></div>
+                        <div className="w-[50px] h-[10px] "></div>
+                        <div className="w-[50px] h-[10px] "></div>
+                    </div>
                 </Box>
             </Box>
         </Box>
