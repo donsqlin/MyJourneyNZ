@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, FormControl, IconButton, InputLabel, MenuItem, Select, Skeleton, SwipeableDrawer, TextField, Typography } from '@mui/material';
 import SearchButton from '../SearchButton/SearchButton';
 import TransportSelection from '../transportSelection/TransportSelection';
@@ -29,7 +29,7 @@ const JourneySelection = ({ changeAppProgressGrandparent, setStart, setDestinati
       {modelProg == 0
         ? <p className='text-lg font-semibold mb-5 ml-[50px] '>Plan your journey</p>
         : <h1 onClick={()=>{
-          setModelProg(prev => prev - 1)
+          changeAppProgressGrandparent1(modelProg - 1)
         }} className='text-6xl'>&#60;</h1>}
 
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>

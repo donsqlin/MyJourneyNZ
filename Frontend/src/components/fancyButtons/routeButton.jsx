@@ -21,7 +21,7 @@ const RouteButton = () => {
     <Box
       sx={{
         width: '100%',
-        backgroundColor: '#000',
+        backgroundColor: 'black',
         color: '#fff',
         borderRadius: '10px',
         boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
@@ -40,15 +40,6 @@ const RouteButton = () => {
           justifyContent: 'space-between',
         }}
       >
-        {/* <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <h3> BUS</h3>
-          <DirectionsBusIcon sx={{ color: '#fff' }} />
-          <DottedLine />
-          <DirectionsSubwayIcon sx={{ color: '#fff' }} />
-          <DottedLine />
-          <SportsScoreIcon />
-
-        </Box> */}
         <img src={Atlogo} className="w-[50px] h-[40px]"></img>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <DirectionsBusIcon sx={{ color: 'white', marginRight: "10px" }} />
@@ -56,7 +47,6 @@ const RouteButton = () => {
           <DirectionsSubwayIcon sx={{ color: 'white', marginRight: "10px" }} />
           <MoreHoriz />
           <SportsScoreIcon />
-
         </Box>
         <Typography sx={{ fontWeight: 'bold', fontSize: '1.2em' }}>
           4:10PM
@@ -78,6 +68,15 @@ const RouteButton = () => {
           <ScheduleIcon sx={{ color: '#fff', marginRight: '5px' }} />
           <Typography>45 MIN + delays</Typography>
         </Box>
+
+      </Box>
+      <Box className="w-[100%]">
+        <div className="flex flex-row items-center ">
+          <Typography>Sustainability</Typography>
+          <div className="w-[50px] h-[10px] bg-red-500 ml-[10px]"></div>
+          <div className="w-[50px] h-[10px] bg-orange-500"></div>
+          <div className="w-[50px] h-[10px]"></div>
+        </div>
       </Box>
     </Box>
   );

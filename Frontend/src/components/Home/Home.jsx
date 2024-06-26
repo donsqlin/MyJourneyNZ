@@ -33,6 +33,7 @@ import React, { useState, useRef } from 'react';
 import Modal from '../Modal/Modal.jsx';
 import GoogleMap from '../Map/GoogleMap.jsx';
 import NavBar from '../NavBar/NavBar.jsx'
+import NavBarDefault from '../NavBar/NavBarDefault.jsx';
 
 const Home = () => {
   const [start, setStart] = useState('');
@@ -59,7 +60,11 @@ const Home = () => {
       <div>
         <h1 className='text-center py-5 bg-lime-500'>Events</h1>
       </div>
-      <NavBar />
+      {progress <= 1 
+      ? <NavBarDefault />
+      :<NavBar />}
+      
+      
       <GoogleMap ref={googleMapRef} start={start} end={destination} travelMode="TRANSIT" />
       <Modal 
         changeAppProgress={changeAppProgress} 
