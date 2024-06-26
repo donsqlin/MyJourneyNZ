@@ -19,6 +19,9 @@ const RouteSelection = ({ sortby }) => {
 
             <div>
                 <h1 className='font-bold mt-[20px]'>Other Journeys</h1>
+                <div>
+                    
+                </div>
             </div>
         </div>
     )
