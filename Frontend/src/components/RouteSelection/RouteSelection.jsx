@@ -1,5 +1,5 @@
 import React from 'react'
-import RouteButton from '../fancyButtons/RouteButton.jsx'
+import RouteButton from '../fancyButtons/routeButton.jsx'
 import OtherRouterButton from '../fancyButtons/OtherRouterButtons.jsx'
 import AtRouterButton from '../fancyButtons/AtButton.jsx'
 import Beam1Button from '../fancyButtons/Beam1Button.jsx'
