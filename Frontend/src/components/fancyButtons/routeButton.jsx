@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Typography } from '@mui/material';
 import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
 import DirectionsSubwayIcon from '@mui/icons-material/DirectionsSubway';
+import SportsScoreIcon from '@mui/icons-material/SportsScore';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { styled } from '@mui/system';
@@ -38,10 +39,13 @@ const RouteButton = () => {
         }}
       >
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <h3> BUS</h3>
+          <h3> BUS</h3>
           <DirectionsBusIcon sx={{ color: '#fff' }} />
           <DottedLine />
           <DirectionsSubwayIcon sx={{ color: '#fff' }} />
+          <DottedLine />
+          <SportsScoreIcon />
+
         </Box>
         <Typography sx={{ fontWeight: 'bold', fontSize: '1.2em' }}>
           4:10PM
