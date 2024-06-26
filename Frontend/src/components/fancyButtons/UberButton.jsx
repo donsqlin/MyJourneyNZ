@@ -71,9 +71,12 @@ const UberButton = () => {
                     <Typography sx={{}}>4 PM</Typography>
                     <div className="flex flex-row items-center ml-[50px]">
                         <Typography>Sustainability</Typography>
-                        <div className="w-[50px] h-[10px] bg-red-500 ml-[10px]"></div>
-                        <div className="w-[50px] h-[10px]"></div>
-                        <div className="w-[50px] h-[10px]"></div>
+                                            
+                        <div className="w-[50px] h-[10px] bg-green-500 ml-[10px]"></div>
+                        <div className="w-[50px] h-[10px] bg-orange-500"></div>
+                        <div className="w-[50px] h-[10px] bg-red-500"></div>
+ 
+    
                     </div>
                 </Box>
             </Box>

@@ -73,7 +73,7 @@ const RouteButton = () => {
       <Box className="w-[100%]">
         <div className="flex flex-row items-center ">
           <Typography>Sustainability</Typography>
-          <div className="w-[50px] h-[10px] bg-red-500 ml-[10px]"></div>
+          <div className="w-[50px] h-[10px] bg-green-500 ml-[10px]"></div>
           <div className="w-[50px] h-[10px] bg-orange-500"></div>
           <div className="w-[50px] h-[10px]"></div>
         </div>
