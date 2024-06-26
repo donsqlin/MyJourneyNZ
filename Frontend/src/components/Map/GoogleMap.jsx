@@ -10,9 +10,13 @@ import destinationFlagIcon from '../../assets/destination-flag-icon.svg';
 import scooterIconUrl from '../../assets/electric-scooter.png';
 import scooterLocationsData from '../../assets/scooterLocations.json';
 
-const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
+const GoogleMap = forwardRef(({ start, end, travelMode, getDirections }, ref) => {
   const [directionsData, setDirectionsData] = useState();
   const [showDirections, setShowDirections] = useState(false);
+
+  useEffect(()=>{
+    getDirections(directionsData)
+  },[directionsData])
 
   // Expose a function to calculate and display route externally
   useImperativeHandle(ref, () => ({
@@ -165,60 +169,7 @@ const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
   }, [travelMode]); // Re-initialize the map when travelMode changes
 
   return (
-    <div>
       <div id="map" style={{ height: '195vw', width: '100%' }}></div>
-      {showDirections && directionsData && (
-        <div className="border-t-2 border-black rounded-3xl">
-          <div className="flex font-bold mt-2">
-            <div className="flex gap-2">
-              <div className="ml-2">
-                {directionsData.departure_time ? directionsData.departure_time.text : 'No departure time available'}
-              </div>
-              <div>
-                <img
-                  src="../../src/assets/location-blue.png"
-                  alt="location icon"
-                  className="max-w-3"
-                />
-              </div>
-            </div>
-            <div className="ml-2">Depart from {start}</div>
-          </div>
-
-          <ul className="ml-2">
-            {directionsData.steps.map((direction, index) => (
-              <li key={index} className="flex items-center">
-                <p className="w-20">{direction.duration.text}</p>
-                <p className="font-bold text-2xl w-5">&#x2022;</p>
-                <p className='w-[100vw]'>{direction.instructions}</p>
-              </li>
-            ))}
-          </ul>
-
-          <div className="flex font-bold justify-between">
-            <div className="flex gap-2">
-              <div className="ml-2">
-                {directionsData.arrival_time ? directionsData.arrival_time.text : 'No arrival time available'}
-              </div>
-              <div>
-                <img
-                  src="../../src/assets/finish-flag-blue.png"
-                  alt="finish flag icon"
-                  className="max-w-3"
-                />
-              </div>
-              <div>Arrive at {end}</div>
-            </div>
-
-            <div>
-              <button className="bg-black text-white font-bold py-2 px-4 rounded mr-3 mb-5">
-                Start
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
   );
 });
 

@@ -3,8 +3,9 @@ import { Button, FormControl, IconButton, InputLabel, MenuItem, Select, Skeleton
 import SearchButton from '../SearchButton/SearchButton';
 import TransportSelection from '../transportSelection/TransportSelection';
 import RouteSelection from '../RouteSelection/RouteSelection';
+import Directions from "../Map/Directions.jsx"
 
-const JourneySelection = ({ changeAppProgressGrandparent, setStart, setDestination, handleTravelModeChange }) => {
+const JourneySelection = ({ changeAppProgressGrandparent, setStart, setDestination, handleTravelModeChange, directions }) => {
   const [modelProg, setModelProg] = useState(0);
   const [sortby, setSortby] = useState("");
   const [start, setStartState] = useState('');
@@ -23,11 +24,11 @@ const JourneySelection = ({ changeAppProgressGrandparent, setStart, setDestinati
 
   return (
 
-    <div className={modelProg == 0?'mt-10': 'mt-0' }>
+    <div className={modelProg == 0 ? 'mt-10' : 'mt-0'}>
 
       {modelProg == 0
         ? <p className='text-lg font-semibold mb-5 ml-[50px] '>Plan your journey</p>
-        : <h1 onClick={()=>{
+        : <h1 onClick={() => {
           changeAppProgressGrandparent1(modelProg - 1)
         }} className='text-6xl'>&#60;</h1>}
 
@@ -49,13 +50,20 @@ const JourneySelection = ({ changeAppProgressGrandparent, setStart, setDestinati
           onChange={(e) => setDestinationState(e.target.value)}
         />
 
-        {modelProg === 0 ? (
-          <SearchButton changeAppProgressGrandparent1={changeAppProgressGrandparent1} />
-        ) : modelProg === 1 ? (
-          <TransportSelection changeAppProgressGrandparent1={changeAppProgressGrandparent1} changeSortBy={changeSortBy} />
-        ) : (
-          <RouteSelection sortby={sortby} handleTravelModeChange={handleTravelModeChange} />
-        )}
+        {modelProg === 0
+          ? (
+            <SearchButton changeAppProgressGrandparent1={changeAppProgressGrandparent1} />
+          ) : modelProg === 1
+            ? (
+              <TransportSelection changeAppProgressGrandparent1={changeAppProgressGrandparent1} changeSortBy={changeSortBy} />
+            ) : modelProg === 2
+              ? (
+                <RouteSelection changeAppProgressGrandparent1={changeAppProgressGrandparent1} sortby={sortby} handleTravelModeChange={handleTravelModeChange} />
+              )
+              : (<div>
+                {/* <p>asdfdsafsad</p> */}
+                <Directions start={destination} end={destination} directionsData={directions} />
+              </div>)}
       </div>
     </div>
   );
