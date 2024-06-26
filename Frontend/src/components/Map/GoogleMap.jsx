@@ -1,4 +1,6 @@
 import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import blackAndWhiteStyle from '../../assets/blackandwhitestyle.json';
+
 
 const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
   // Define initMap function
@@ -14,6 +16,10 @@ const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
       streetViewControl: false,
       rotateControl: false,
       fullscreenControl: false,
+      styles: blackAndWhiteStyle,
+      disableDefaultUI: true,
+      mapTypeId: 'roadmap',
+      backgroundColor: 'none'
     });
     directionsRenderer.setMap(map);
     directionsRenderer.setPanel(document.getElementById('directionsPanel'));
@@ -77,7 +83,7 @@ const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
 
   return (
     <div>
-      <div id="map" style={{ height: '710px', width: '100%' }}></div>
+      <div id="map" style={{ height: '195vw', width: '100%' }}></div>
     </div>
   );
 });
