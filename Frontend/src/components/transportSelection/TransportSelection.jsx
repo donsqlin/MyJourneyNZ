@@ -32,7 +32,7 @@ export default function TransportSelection({ changeAppProgressGrandparent1, chan
   };
 
   return (
-    <div>
+    <div className='flex flex-col'>
       <div className='flex-column justify-center mt-[60px]'>
         <p className='text-center mt-[-50px]'>Sort by</p>
         <div className='flex justify-center'>
@@ -57,20 +57,20 @@ export default function TransportSelection({ changeAppProgressGrandparent1, chan
         </div>
       </div>
 
-      <div className='flex flex-row space-x-4 mt-[110px] mb-[20px] border-2 w-[150px]'>
+      <div className='flex flex-row space-x-4 mt-[110px] mb-[20px] border-2 w-[150px] h-[25px] self-center'>
         <img className="w-[25px] h-[25px]" src={personIcon}></img>
         <p>{pax} pax</p>
 
-        <div className='flex flex-row'>
+        <div className='flex flex-row '>
           <div>
-            <p className='border-r-2  text-4xl' onClick={() => {
+            <p className='border-r-2  text-4xl mt-[-14px]' onClick={() => {
               if (pax != 0) {
                 setPax(prev => prev - 1)
               }
             }}>-</p>
           </div>
           <div>
-            <p className='text-4xl '
+            <p className='text-4xl mt-[-14px]'
               onClick={() => {
                 setPax(prev => prev + 1)
               }}

@@ -4,7 +4,7 @@ import SearchButton from '../SearchButton/SearchButton';
 import TransportSelection from '../transportSelection/TransportSelection';
 import RouteSelection from '../RouteSelection/RouteSelection';
 
-import RouteButton from '../fancyButtons/routeButton';
+import RouteButton from '../fancyButtons/RouteButton';
 
 
 const JourneySelection = ({ changeAppProgressGrandparent, setStart, setDestination }) => {
