@@ -4,15 +4,19 @@ import SearchButton from '../SearchButton/SearchButton';
 import TransportSelection from '../transportSelection/TransportSelection';
 import RouteSelection from '../RouteSelection/RouteSelection';
 
-const JourneySelection = ({ changeAppProgressGrandparent }) => {
+const JourneySelection = ({ changeAppProgressGrandparent, setStart, setDestination }) => {
   const [modelProg, setModelProg] = useState(0)
   const [sortby, setSortby] = useState("")
+  const [start, setStartState] = useState('');
+  const [destination, setDestinationState] = useState('');
 
   const changeSortBy = (sort) => {
     setSortby(sort)
   }
 
   const changeAppProgressGrandparent1 = (prog) => {
+    setStart(start);
+    setDestination(destination);
     changeAppProgressGrandparent(prog)
     setModelProg(prog)
   }
@@ -35,12 +39,16 @@ const JourneySelection = ({ changeAppProgressGrandparent }) => {
           id="Start point"
           label="Start point"
           variant="outlined"
+          value={start}
+          onChange={(e) => setStartState(e.target.value)}
         />
         <TextField
           sx={{ width: "400px", paddingTop: "5px", border: "1px solid black" }}
           id="Destination"
           label="Destination"
           variant="outlined"
+          value={destination}
+          onChange={(e) => setDestinationState(e.target.value)}
         />
 
         {modelProg == 0
