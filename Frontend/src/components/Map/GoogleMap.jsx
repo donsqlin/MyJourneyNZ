@@ -4,10 +4,13 @@ const GoogleMap = forwardRef(({ start, end, travelMode }, ref) => {
   // Expose a function to calculate and display route externally
   useImperativeHandle(ref, () => ({
     calculateRoute: () => {
-      calculateAndDisplayRoute();
+      if (start && end) {
+        calculateAndDisplayRoute();
+      } else {
+        console.log('Start and End must be set before calculating route');
+      }
     },
   }));
-
     // Define initMap function
   const initMap = () => {
     const directionsService = new window.google.maps.DirectionsService();
