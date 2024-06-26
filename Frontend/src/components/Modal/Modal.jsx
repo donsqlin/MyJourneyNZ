@@ -4,18 +4,20 @@ import JourneySelection from '../journeySelection/JourneySelection.jsx';
 import TransportSelection from '../transportSelection/TransportSelection.jsx';
 import { styled } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
+import { Global } from '@emotion/react';
+import DehazeIcon from '@mui/icons-material/Dehaze';
 
 const StyledBox = styled('div')(({ theme }) => ({
-  backgroundColor: "grey",
+  backgroundColor: "white",
 }));
 
 const Puller = styled('div')(({ theme }) => ({
   width: 30,
   height: 6,
-  backgroundColor: 'grey',
+  backgroundColor: 'black',
   borderRadius: 3,
   position: 'absolute',
-  top: 8,
+  top: 880,
   left: 'calc(50% - 15px)',
 }));
 
@@ -33,9 +35,18 @@ const Modal = ({ changeAppProgress, setStart, setDestination }) => {
   let container = window.document.body
 
   return (
-    <div className='z-10 rounded-md flex flex-col items-center justify-center p-5'>
-      
+    <div className=''>
+      <Global
+        styles={{
+          '.MuiDrawer-root > .MuiPaper-root': {
+            // height: `calc(50% - ${drawerBleeding}px)`,
+            overflow: 'visible',
+          },
+        }}
+      />
+
       <SwipeableDrawer
+        sx={{borderTop:"1px solid black"}}
         container={container}
         anchor="bottom"
         open={open}
@@ -58,15 +69,16 @@ const Modal = ({ changeAppProgress, setStart, setDestination }) => {
             left: 0,
           }}
         >
-          <Puller />
-          <Typography sx={{ p: 2, color: 'black' }}>51 results</Typography>
+          <div className='ml-[48%] mt-[10px] h-[50px]'>
+            <DehazeIcon />
+          </div>
         </StyledBox>
-        <JourneySelection 
-        changeAppProgressGrandparent={changeAppProgressGrandparent} 
-        setStart={setStart} 
-        setDestination={setDestination} 
+        <JourneySelection
+          changeAppProgressGrandparent={changeAppProgressGrandparent}
+          setStart={setStart}
+          setDestination={setDestination}
         />
-        
+
         <Skeleton variant="rectangular" height="100%" />
       </SwipeableDrawer>
     </div>

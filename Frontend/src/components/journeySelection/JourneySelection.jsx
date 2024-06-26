@@ -26,10 +26,8 @@ const JourneySelection = ({ changeAppProgressGrandparent, setStart, setDestinati
 
     <div className={modelProg == 0?'mt-10': 'mt-0' }>
 
-
-
       {modelProg == 0
-        ? <p className='text-lg font-semibold mb-5 '>Plan your journey</p>
+        ? <p className='text-lg font-semibold mb-5 ml-[50px] '>Plan your journey</p>
         : <h1 onClick={()=>{
           setModelProg(prev => prev - 1)
         }} className='text-6xl'>&#60;</h1>}

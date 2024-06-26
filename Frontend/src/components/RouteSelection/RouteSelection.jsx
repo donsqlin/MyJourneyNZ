@@ -22,7 +22,7 @@ const RouteSelection = ({ sortby }) => {
             </div>
 
             <div className='flex flex-col justify-center'>
-                <h1 className='font-bold mt-[20px] text-center text-xl'>Other Journeys</h1>
+                <h1 className='font-bold mt-[20px] text-center text-xl'>Other Routes</h1>
                 <div style={{border:"1px solid black"}} className='max-h-[300px] overflow-y-auto'>
 
                     <div>

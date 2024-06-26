@@ -7,6 +7,7 @@ import SportsScoreIcon from '@mui/icons-material/SportsScore';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { styled } from '@mui/system';
 import Atlogo from "../../assets/AT.svg"
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 const DottedLine = styled('div')({
     flexGrow: 1,
@@ -42,11 +43,10 @@ const AtRouterButton = () => {
             >
                 <img src={Atlogo} className="w-[50px] h-[40px]"></img>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <h3> BUS</h3>
-                    <DirectionsBusIcon sx={{ color: 'black' }} />
-                    <DottedLine />
-                    <DirectionsSubwayIcon sx={{ color: 'black' }} />
-                    <DottedLine />
+                    <DirectionsBusIcon sx={{ color: 'black', marginRight: "10px" }} />
+                    <MoreHorizIcon />
+                    <DirectionsSubwayIcon sx={{ color: 'black', marginRight: "10px" }} />
+                    <MoreHorizIcon />
                     <SportsScoreIcon />
 
                 </Box>
