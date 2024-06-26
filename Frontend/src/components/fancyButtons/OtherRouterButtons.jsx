@@ -5,6 +5,8 @@ import DirectionsSubwayIcon from '@mui/icons-material/DirectionsSubway';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { styled } from '@mui/system';
+import Atlogo from "../../assets/AT.svg";
+
 
 const DottedLine = styled('div')({
   flexGrow: 1,
@@ -13,7 +15,7 @@ const DottedLine = styled('div')({
   margin: '0 5px',
 });
 
-const OtherRouterButton = () => {
+const OtherRouterButton = ({onClick}) => {
   return (
     <Box
       sx={{
@@ -27,7 +29,9 @@ const OtherRouterButton = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        cursor: 'pointer', 
       }}
+      onClick={onClick}
     >
       <Box
         sx={{
@@ -37,7 +41,7 @@ const OtherRouterButton = () => {
           justifyContent: 'space-between',
         }}
       >
-        <img></img>
+        <img src={Atlogo} alt="AT logo" className="w-[50px] h-[40px]" />
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <h3> BUS</h3>
           <DirectionsBusIcon sx={{ color: 'black' }} />
