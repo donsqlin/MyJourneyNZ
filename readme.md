@@ -1,10 +1,10 @@
-# NavigateAuckland
+# MyJourneyNZ
 
-<img src="path-to-your-logo/NavigateAuckland-logo.png" alt="NavigateAuckland-logo" width="150">
 
-NavigateAuckland is a comprehensive solution for real-time navigation and transport services in Auckland. Our platform integrates multiple APIs to offer users the best routes and transport options, ensuring a seamless travel experience.
 
-At NavigateAuckland, we aim to redefine urban mobility by providing reliable, real-time information on public transport, ridesharing, and navigation. Our application leverages advanced technology to offer transparency, convenience, and efficiency in commuting.
+MyJourneyNZ is a comprehensive solution for real-time navigation and transport services in Auckland. Our platform integrates multiple APIs to offer users the best routes and transport options, ensuring a seamless travel experience.
+
+At MyJourneyNZ, we aim to redefine urban mobility by providing reliable, real-time information on public transport, ridesharing, and navigation. Our application leverages advanced technology to offer transparency, convenience, and efficiency in commuting.
 
 ## Get Started
 
@@ -21,14 +21,12 @@ Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
 
 - **Frontend:** React, HTML, CSS
 - **Backend:** Node.js, Express.js
-- **Database:** MongoDB
-- **APIs:** Google Maps API, Uber API, AT Mobile API
+- **APIs:** Google Maps API
 
 ### Current Features
 
 - **Real-time Navigation:** Get the best routes using Google Maps API.
-- **Ridesharing Integration:** Book rides directly through the Uber API.
-- **Public Transport Information:** Access real-time data from AT Mobile API.
+- **Public Transport Information:** Access real-time data from Google Map API
 - **User Registration:** Register as a user for personalized experiences.
 - **Profile Management:** View and manage user profiles.
 
@@ -39,15 +37,15 @@ Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
 - **Mobile Application:** Expand to mobile platforms for iOS and Android.
 - **In-app Chat:** Introduce a chat service for real-time communication.
 
-## Accenture NZ Technology Bootcamp 2023
+## Accenture NZ Technology Bootcamp 2024
 
 <img src="path-to-your-logo/Accenture-logo.png" alt="Accenture-logo" width="150"/>
 
-This app was created as a part of Accenture New Zealand's Technology Bootcamp 2023.
+This app was created as a part of Accenture New Zealand's Technology Bootcamp 2024.
 
 The bootcamp, held over 4 days in June, guided us from ideation to implementation. With mentorship and workshops, we brought the app from a business idea to a functional solution. Workshops included design thinking, a Figma tutorial, agile methodologies, and automation.
 
-The final day of the bootcamp culminated in a presentation to a judging panel. Our team was awarded Runner Up for our innovative product and comprehensive presentation.
+The final day of the bootcamp culminated in a presentation to a judging panel. 
 
 ### Contributors
 
